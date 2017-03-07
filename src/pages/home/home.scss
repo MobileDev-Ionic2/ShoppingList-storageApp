@@ -1,0 +1,28 @@
+.listIcon {
+    width: 15%;
+    z-index: 50;   
+}
+.addIcon
+{
+    font-size: 70px;
+    float: right;
+}
+
+.itemInput{
+    width:70%;
+}
+
+.itemInputCrossed{
+    @extend .itemInput;
+    text-decoration: line-through;
+    color: lightgrey;
+}
+
+body{
+    background-color: lightgreen;
+}
+
+page-home {
+
+
+}
