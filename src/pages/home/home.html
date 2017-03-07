@@ -12,7 +12,7 @@
   <ion-list>
   <ion-item *ngFor="let item of items; let i = index; trackBy: trackByFn">
     <ion-input *ngIf="item == ''" placeholder="Add your item here" [(ngModel)]="currentItem"></ion-input>
-    <ion-label *ngIf="item != ''" class="itemInput">{{item}}</ion-label>
+    <ion-label *ngIf="item != ''" class="itemInput" (click)="removeItem(item, i)">{{item}}</ion-label>
     
     <ion-icon *ngIf="item == ''" name="add-circle" item-right class="listIcon" (click)="confirmItem(currentItem)"></ion-icon>
     <ion-icon *ngIf="item == ''" name="undo" item-right class="listIcon" (click)="undoItem(currentItem)"></ion-icon>
