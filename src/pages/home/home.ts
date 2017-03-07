@@ -56,6 +56,9 @@ export class HomePage {
   public undoItem(item:string)
   {
     console.log("undo " + item)
+    this.logArray();
+    this.items.shift();
+    this.logArray();
   }
 
   public confirmItem(item:string)
