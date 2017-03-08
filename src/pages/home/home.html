@@ -1,12 +1,19 @@
 <ion-header>
   <ion-navbar>
+     
+     <button end ion-button icon-only menuToggle [navPush]="settingsPage" [navParams]="settings">
+      <ion-icon name="settings"></ion-icon>
+    </button>
     <ion-title>
       Shopping List  <ion-icon name="cart"></ion-icon>
     </ion-title>
+    
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
+
   <ion-icon name="add-circle" class="addIcon" (click)="addItem()"></ion-icon>
 
   <ion-list>
@@ -25,3 +32,18 @@
     <ion-label class="itemInputCrossed" (click)="undoCrossedItem(item, i)">{{item}}</ion-label>
   </ion-item>
 </ion-list>
+
+<ion-card>
+  <ion-card-header>
+    Debug Info
+  </ion-card-header>
+  <ion-card-content>
+    <ion-label>sortAlphabetical = {{settings.sortAlphabetical}}</ion-label>
+    <ion-label>useHintsAndNotifications = {{settings.useHintsAndNotifications}}</ion-label>
+    <ion-label>useLogin = {{settings.useLogin}}</ion-label>
+    <ion-label>userName = {{settings.userName}}</ion-label>
+    <ion-label>userPassword = {{settings.userPassword}}</ion-label>
+
+
+  </ion-card-content>
+</ion-card>

@@ -1,18 +1,23 @@
 import { Component } from '@angular/core';
-
+import { ToastController } from 'ionic-angular';
 import { NavController, AlertController } from 'ionic-angular';
-
+import {SettingsPage} from '../settings/settings';
+import {Settings} from '../../models/settings';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
+  public settings:Settings = new Settings();
   public currentItem:string;
   public items: Array<string> = new Array<string>();
   public itemsCrossed: Array<string> = new Array<string>();
+  public settingsPage = SettingsPage;
 
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, public toastCtrl: ToastController) {
+    this.settings = new Settings();
+
     this.items.push("Milk");
     this.items.push("Tomatoes");
   }
@@ -50,6 +55,15 @@ export class HomePage {
     {
       this.currentItem = "";
       this.items.unshift("");
+    }
+    else
+    {
+      let toast = this.toastCtrl.create({
+      message: 'You are not done with the previous one',
+      duration: 2000,
+      position: 'top'
+    });
+    toast.present();
     }
   }
 
